@@ -8,6 +8,7 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import javax.annotation.PostConstruct;
 
 
 @Component
@@ -19,17 +20,19 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Value("${bot.token}")
     private String botToken;
-// ---------------------------------------------------------Часть кода, связующий в оба на правления Решистор обновления и телеграмм Бот
+// ---------------------------------------------------------Часть кода, связующий в оба на правления Резистор обновления и телеграмм Бот
     private UpdateController updateController;
 
     public TelegramBot(UpdateController updateController) {
         this.updateController = updateController;
     }
 
+    @PostConstruct
     public void init(){
         updateController.registarBot(this);
     }
 // --------------------------------------------------------
+
 
     @Override
     public String getBotUsername() {
