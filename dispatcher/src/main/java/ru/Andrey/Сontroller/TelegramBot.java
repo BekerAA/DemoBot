@@ -19,8 +19,17 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Value("${bot.token}")
     private String botToken;
+// ---------------------------------------------------------Часть кода, связующий в оба на правления Решистор обновления и телеграмм Бот
+    private UpdateController updateController;
 
+    public TelegramBot(UpdateController updateController) {
+        this.updateController = updateController;
+    }
 
+    public void init(){
+        updateController.registarBot(this);
+    }
+// --------------------------------------------------------
 
     @Override
     public String getBotUsername() {

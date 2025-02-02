@@ -15,7 +15,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <telegrambot.startet.version>5.0.1</telegrambot.startet.version>
+        <telegrambot.startet.version>6.1.0</telegrambot.startet.version>
     </properties>
 
     <dependencies>
