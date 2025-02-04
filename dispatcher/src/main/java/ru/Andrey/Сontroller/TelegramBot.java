@@ -17,43 +17,38 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Value("${bot.name}")
     private String botName;
-
-    @Value("${bot.token}")
-    private String botToken;
-// ---------------------------------------------------------Часть кода, связующий в оба на правления Резистор обновления и телеграмм Бот
-    private UpdateController updateController;
-
-    public TelegramBot(UpdateController updateController) {
-        this.updateController = updateController;
-    }
-
-    @PostConstruct
-    public void init(){
-        updateController.registarBot(this);
-    }
-// --------------------------------------------------------
-
+    //адресс бота, для его обнаружения в ТГ
 
     @Override
     public String getBotUsername() {
         return botName;
-    }
+    }//Метод, который выводит адресс бота
+
+    @Value("${bot.token}")
+    private String botToken;
+    //Бот токен
 
     @Override
     public String getBotToken() {
         return botToken;
-    }
+    }//Метод, который выводит токен бота
+
+    private UpdateController updateController;
+    //Создается объект класса UpdateController
+
+    public TelegramBot(UpdateController updateController) {
+        this.updateController = updateController;
+    }// Метод для принятия ссылки на объект классом UpdateControlle
+
+    @PostConstruct
+    public void init(){
+        updateController.registarBot(this);
+    }//Метод, который передает ссылку на объект класса TelegaramBot в объект класса UpdateController
 
     @Override
     public void onUpdateReceived(Update update) {
-        var originMessage = update.getMessage();
-        log.debug(originMessage.getText());
-
-        var response = new SendMessage();
-        response.setChatId(originMessage.getChatId().toString());
-        response.setText("Привет пользователь, я пока что нахожусь в тестовом режиме");
-        sendAnswerMessage(response);
-    }
+        updateController.processUpdate(update);
+    }//Данный метод нужен для логирования поступихших обновлений и подача ответов пользователям.
 
     public void sendAnswerMessage(SendMessage message){
         if (message != null){
@@ -63,5 +58,5 @@ public class TelegramBot extends TelegramLongPollingBot {
                 log.error(e);
             }
         }
-    }
+    }//Метод для обработки полученных сообщений и ошибок.
 }
