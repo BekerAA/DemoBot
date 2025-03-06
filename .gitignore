@@ -39,3 +39,5 @@ build/
 dispatcher/src/main/resources/application.properties
 
 logs/
+
+noda/src/main/resources/application.properties

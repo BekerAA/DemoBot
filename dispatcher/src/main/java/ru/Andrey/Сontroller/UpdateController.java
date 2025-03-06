@@ -62,7 +62,7 @@ public class UpdateController {
         setView(sendMessage);
     }//Метод для обработки сообщей ни поддерживаемого типа данных
 
-    private void setView(SendMessage sendMessage) {
+    public void setView(SendMessage sendMessage) {
         telegramBot.sendAnswerMessage(sendMessage);
     }//метод для отправки сообщений
 
