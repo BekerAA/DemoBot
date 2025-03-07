@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.Andrey.service.ConsumerService;
+import ru.Andrey.service.MainService;
 import ru.Andrey.service.ProducerService;
 
 import static ru.Andrey.model.RabbitQueue.*;
@@ -14,23 +15,17 @@ import static ru.Andrey.model.RabbitQueue.*;
 @Log4j
 public class ConsumerServiceImpl implements ConsumerService {
 
-    private final ProducerService producerService;
+    private final MainService mainService;
 
-    public ConsumerServiceImpl(ProducerService producerService) {
-        this.producerService = producerService;
+    public ConsumerServiceImpl(MainService mainService) {
+        this.mainService = mainService;
     }
-
 
     @Override
     @RabbitListener(queues = TEXT_MESSAGE_UPDATE)
     public void consumerTextMessageUpdate(Update update) {
         log.debug("NODE: Text message is received");
-
-        var message = update.getMessage();
-        var sendMessage = new SendMessage();
-        sendMessage.setChatId(message.getChatId().toString());
-        sendMessage.setText("Hellow from Node");
-        producerService.produserAnswer(sendMessage);
+        mainService.processTextMessage(update);
     }
 
     @Override
