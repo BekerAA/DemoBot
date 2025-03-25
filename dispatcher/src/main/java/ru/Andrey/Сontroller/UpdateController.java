@@ -68,23 +68,17 @@ public class UpdateController {
 
     private void processPhotoMessage(Update update) {
         updateProducer.produce(PHOTO_MESSAGE_UPDATE, update);
-        setFileIsReceivedView(update);
     }//Метод для обработки сообщей с фото
 
     private void processDocMessage(Update update) {
         updateProducer.produce(DOC_MESSAGE_UPDATE, update);
-        setFileIsReceivedView(update);
     }//Метод для обработки сообщей с документами
 
     private void processTextMessage(Update update) {
         updateProducer.produce(TEXT_MESSAGE_UPDATE, update);
-        setFileIsReceivedView(update);
     }//Метод для обработки сообщей с текстом
 
-    private void setFileIsReceivedView(Update update) {
-        var sendMessage = messageUtils.generateSendMessageWithText(update, "Файл получен обрабатываем....");
-        setView(sendMessage);
-    }
+
 
 
 
