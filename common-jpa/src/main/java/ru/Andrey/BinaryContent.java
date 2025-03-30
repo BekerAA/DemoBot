@@ -11,7 +11,9 @@ import javax.persistence.Table;
 import java.util.Objects;
 
 
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode(exclude = "id")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

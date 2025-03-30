@@ -6,6 +6,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
 import ru.Andrey.AppDocument;
+import ru.Andrey.AppPhoto;
 import ru.Andrey.AppUser;
 import ru.Andrey.dao.AppUserDAO;
 import ru.Andrey.dao.RawDataDAO;
@@ -94,9 +95,18 @@ public class MainServiceImpl implements MainService {
         if (isNotAllowToSendContent(chatId, appUser)){
             return;
         }
-        //TODO добавить сохранение документов
-        var answer = "Фото успешно загружено! Ссылка для скачивания: http://test.ru/get-photo/777";
-        sendAnswer(answer, chatId);
+
+        try {
+            AppPhoto photo = fileService.processPhoto(update.getMessage());
+            //TODO добавить генерацию ссылок
+            var answer = "Фото успешно загружено! Ссылка для скачивания: http://test.ru/get-photo/777";
+            sendAnswer(answer, chatId);
+        }catch (UploadFileException ex){
+            log.error(ex);
+            String error = "К сожалению, загрузка Фото не удалась. Повторите попытку позже.";
+            sendAnswer(error, chatId);
+        }
+
     }
 
     private boolean isNotAllowToSendContent(Long chatId, AppUser appUser) {

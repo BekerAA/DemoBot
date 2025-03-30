@@ -1,9 +1,9 @@
 package ru.Andrey;
 
-
 import lombok.*;
 
 import javax.persistence.*;
+
 
 @Getter
 @Setter
@@ -11,21 +11,18 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "app_document")
+@Table(name = "app_photo")
 @Entity
-public class AppDocument {
+public class AppPhoto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String telegramFileId;
 
-    private String docName;
-
     @OneToOne
     private BinaryContent binaryContent;//Ссылка на скаченный объект
 
-    private String mimeType;
-
-    private Long fileSize;
+    private Integer fileSize;
 }
+
