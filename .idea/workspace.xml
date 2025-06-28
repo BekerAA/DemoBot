@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="454e8ad4-bf73-4814-a043-bbb0b1d47189" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/rest-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rest-service/src/test/java/ru/Andrey/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-jpa/src/main/java/ru/Andrey/AppDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-jpa/src/main/java/ru/Andrey/AppDocument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-jpa/src/main/java/ru/Andrey/BinaryContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-jpa/src/main/java/ru/Andrey/BinaryContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/noda/src/main/java/ru/Andrey/service/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/noda/src/main/java/ru/Andrey/service/FileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/noda/src/main/java/ru/Andrey/service/Impl/FileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/noda/src/main/java/ru/Andrey/service/Impl/FileServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/noda/src/main/java/ru/Andrey/service/Impl/MainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/noda/src/main/java/ru/Andrey/service/Impl/MainServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -40,35 +40,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Dispatcher.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.DispatcherApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.Node.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.NodeApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/andrey/Личные файлы/Program/Демо-бот/DemoBot&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Dispatcher.executor": "Debug",
+    "Application.DispatcherApplication.executor": "Debug",
+    "Application.Node.executor": "Debug",
+    "Application.NodeApplication.executor": "Debug",
+    "Application.RestService.executor": "Debug",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/andrey/Личные файлы/Program/Демо-бот/DemoBot/rest-service/src/main/resources",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "inlay.hints"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/rest-service/src/main/resources" />
       <recent name="$PROJECT_DIR$/noda/src/main/resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ru.Andrey" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ru.Andrey.configuration" />
       <recent name="ru.Andrey" />
+      <recent name="ru.Andrey.configuration" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Node">
+  <component name="RunManager" selected="Application.RestService">
     <configuration name="Dispatcher" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ru.Andrey.DispatcherApplication" />
       <module name="dispatcher" />
@@ -85,10 +87,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RestService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.Andrey.RestService" />
+      <module name="rest-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.Andrey.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Dispatcher" />
       <item itemvalue="Application.Node" />
+      <item itemvalue="Application.RestService" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.RestService" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

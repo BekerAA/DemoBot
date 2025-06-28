@@ -99,7 +99,7 @@ public class MainServiceImpl implements MainService {
         try {
             AppPhoto photo = fileService.processPhoto(update.getMessage());
             //TODO добавить генерацию ссылок
-            var answer = "Фото успешно загружено! Ссылка для скачивания: http://test.ru/get-photo/777";
+            var answer = "Фото успешно загружеkно! Ссылка для скачивания: http://test.ru/get-photo/777";
             sendAnswer(answer, chatId);
         }catch (UploadFileException ex){
             log.error(ex);
