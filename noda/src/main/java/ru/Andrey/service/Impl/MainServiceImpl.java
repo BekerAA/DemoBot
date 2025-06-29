@@ -15,6 +15,7 @@ import ru.Andrey.exception.UploadFileException;
 import ru.Andrey.service.FileService;
 import ru.Andrey.service.MainService;
 import ru.Andrey.service.ProducerService;
+import ru.Andrey.service.emums.LinkType;
 import ru.Andrey.service.emums.ServiceCommand;
 
 import static ru.Andrey.entity.UserState.BASIC_STATE;
@@ -74,7 +75,8 @@ public class MainServiceImpl implements MainService {
 
         try {
             AppDocument doc = fileService.processDoc(update.getMessage());
-            var answer = "Документ успешно загружен! Ссылка для скачивания: http://test.ru/get-photo/777";
+            String link = fileService.generateLink(doc.getId(), LinkType.GET_DOC);
+            var answer = "Документ успешно загружен! Ссылка для скачивания: " + link;
             sendAnswer(answer, chatId);
         } catch (UploadFileException ex){
             log.error(ex);
@@ -98,8 +100,8 @@ public class MainServiceImpl implements MainService {
 
         try {
             AppPhoto photo = fileService.processPhoto(update.getMessage());
-            //TODO добавить генерацию ссылок
-            var answer = "Фото успешно загружеkно! Ссылка для скачивания: http://test.ru/get-photo/777";
+            String link = fileService.generateLink(photo.getId(), LinkType.GET_PHOTO);
+            var answer = "Фото успешно загружеkно! Ссылка для скачивания: " + link;
             sendAnswer(answer, chatId);
         }catch (UploadFileException ex){
             log.error(ex);
